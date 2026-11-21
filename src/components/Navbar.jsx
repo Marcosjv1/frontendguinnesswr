@@ -14,13 +14,13 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navMenu">
           <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
-              <a className="nav-link" href="#records">Récords</a>
+              <a className="nav-link" data-cy="nav-records" href="#records">Récords</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#nuevo">Nuevo Récord</a>
+              <a className="nav-link" data-cy="nav-nuevo" href="#nuevo">Nuevo Récord</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#auth">Cuenta</a>
+              <a className="nav-link" data-cy="nav-auth" href="#auth">Cuenta</a>
             </li>
           </ul>
         </div>

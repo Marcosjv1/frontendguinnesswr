@@ -71,7 +71,7 @@ export default function App() {
       <main className="container my-5">
         <section id="records" className="mb-5">
           <h2 className="mb-4">Galería de Récords</h2>
-          <div className="row g-4">
+          <div className="row g-4" data-cy="records-gallery">
             <RecordGallery
               records={records}
               loading={loading}

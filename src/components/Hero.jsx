@@ -11,7 +11,7 @@ export default function Hero({ backendOk }) {
         <h1 className="display-5 fw-bold">Guinness World Records</h1>
         <p className="lead">Descubre y registra logros extraordinarios en tiempo real</p>
         {backendOk === false && (
-          <span className="badge bg-danger fs-6 px-3 py-2">Backend no disponible</span>
+          <span className="badge bg-danger fs-6 px-3 py-2" data-cy="backend-offline-badge">Backend no disponible</span>
         )}
       </div>
     </header>

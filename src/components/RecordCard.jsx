@@ -7,7 +7,7 @@ export default function RecordCard({ record, onDelete, onEdit }) {
 
   return (
     <div className="col-md-6 col-lg-4">
-      <div className="card h-100 shadow-sm record-card">
+      <div className="card h-100 shadow-sm record-card" data-cy="record-card" data-cy-id={record._id}>
         <img
           src={record.imagenUrl}
           className="card-img-top"
@@ -20,9 +20,9 @@ export default function RecordCard({ record, onDelete, onEdit }) {
         />
         <div className="card-body d-flex flex-column">
           <div className="d-flex justify-content-between align-items-start mb-2">
-            <h5 className="card-title mb-0">{record.titulo}</h5>
+            <h5 className="card-title mb-0" data-cy="record-card-titulo">{record.titulo}</h5>
             {record.isOficial && (
-              <span className="badge bg-warning text-dark ms-2 flex-shrink-0">Oficial</span>
+              <span className="badge bg-warning text-dark ms-2 flex-shrink-0" data-cy="record-card-oficial-badge">Oficial</span>
             )}
           </div>
           <p className="card-text text-muted small">{record.descripcion}</p>
@@ -38,12 +38,14 @@ export default function RecordCard({ record, onDelete, onEdit }) {
             <div className="d-flex gap-2 mt-3">
               <button
                 className="btn btn-outline-primary btn-sm flex-fill"
+                data-cy="record-card-edit-btn"
                 onClick={() => onEdit(record)}
               >
                 ✏️ Editar
               </button>
               <button
                 className="btn btn-outline-danger btn-sm flex-fill"
+                data-cy="record-card-delete-btn"
                 onClick={handleDelete}
               >
                 🗑️ Eliminar

@@ -50,13 +50,14 @@ export default function AuthForm() {
   };
 
   return (
-    <section id="auth" className="card shadow-sm mt-5">
+    <section id="auth" className="card shadow-sm mt-5" data-cy="auth-section">
       <div className="card-body p-4">
         <h2 className="h4 mb-3">Acceso de Usuario</h2>
 
         <div className="btn-group mb-3" role="group" aria-label="Cambiar modo autenticación">
           <button
             type="button"
+            data-cy="auth-mode-login"
             className={`btn ${mode === 'login' ? 'btn-primary' : 'btn-outline-primary'}`}
             onClick={() => {
               setMode('login');
@@ -67,6 +68,7 @@ export default function AuthForm() {
           </button>
           <button
             type="button"
+            data-cy="auth-mode-register"
             className={`btn ${mode === 'register' ? 'btn-primary' : 'btn-outline-primary'}`}
             onClick={() => {
               setMode('register');
@@ -78,19 +80,20 @@ export default function AuthForm() {
         </div>
 
         {session ? (
-          <div className="alert alert-success d-flex justify-content-between align-items-center" role="alert">
-            <span>Conectado como: <strong>{session.username}</strong></span>
-            <button type="button" className="btn btn-sm btn-danger" onClick={handleLogout}>
+          <div className="alert alert-success d-flex justify-content-between align-items-center" role="alert" data-cy="auth-session-alert">
+            <span>Conectado como: <strong data-cy="auth-session-username">{session.username}</strong></span>
+            <button type="button" className="btn btn-sm btn-danger" data-cy="auth-logout-btn" onClick={handleLogout}>
               Cerrar sesión
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} data-cy="auth-form">
             <div className="mb-3">
               <label className="form-label">Usuario</label>
               <input
                 type="text"
                 className="form-control"
+                data-cy="auth-username-input"
                 placeholder="Tu usuario"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -104,6 +107,7 @@ export default function AuthForm() {
               <input
                 type="password"
                 className="form-control"
+                data-cy="auth-password-input"
                 placeholder="Tu contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -112,14 +116,14 @@ export default function AuthForm() {
               />
             </div>
 
-            <button type="submit" className="btn btn-dark" disabled={loading}>
+            <button type="submit" className="btn btn-dark" data-cy="auth-submit-btn" disabled={loading}>
               {loading ? 'Procesando...' : mode === 'login' ? 'Entrar' : 'Crear cuenta'}
             </button>
           </form>
         )}
 
-        {message && <div className="alert alert-info mt-3 mb-0">{message}</div>}
-        {error && <div className="alert alert-danger mt-3 mb-0">{error}</div>}
+        {message && <div className="alert alert-info mt-3 mb-0" data-cy="auth-message">{message}</div>}
+        {error && <div className="alert alert-danger mt-3 mb-0" data-cy="auth-error">{error}</div>}
       </div>
     </section>
   );

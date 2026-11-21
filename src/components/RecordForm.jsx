@@ -32,16 +32,17 @@ export default function RecordForm({ onCreated }) {
   };
 
   return (
-    <section id="nuevo" className="card shadow-sm p-4 mb-5">
+    <section id="nuevo" className="card shadow-sm p-4 mb-5" data-cy="record-form-section">
       <h2 className="mb-3">Registrar nuevo récord</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
-      <form onSubmit={handleSubmit} className="row g-3">
+      {error && <div className="alert alert-danger" data-cy="record-form-error">{error}</div>}
+      <form onSubmit={handleSubmit} className="row g-3" data-cy="record-form">
         <div className="col-md-6">
           <label className="form-label">Título</label>
           <input
             type="text"
             name="titulo"
             className="form-control"
+            data-cy="record-titulo-input"
             value={form.titulo}
             onChange={handleChange}
             required
@@ -53,6 +54,7 @@ export default function RecordForm({ onCreated }) {
             type="text"
             name="poseedor"
             className="form-control"
+            data-cy="record-poseedor-input"
             value={form.poseedor}
             onChange={handleChange}
             required
@@ -63,6 +65,7 @@ export default function RecordForm({ onCreated }) {
           <textarea
             name="descripcion"
             className="form-control"
+            data-cy="record-descripcion-input"
             rows="3"
             value={form.descripcion}
             onChange={handleChange}
@@ -75,6 +78,7 @@ export default function RecordForm({ onCreated }) {
             type="number"
             name="anio"
             className="form-control"
+            data-cy="record-anio-input"
             value={form.anio}
             onChange={handleChange}
             required
@@ -86,13 +90,14 @@ export default function RecordForm({ onCreated }) {
             type="url"
             name="imagenUrl"
             className="form-control"
+            data-cy="record-imagenUrl-input"
             value={form.imagenUrl}
             onChange={handleChange}
             required
           />
         </div>
         <div className="col-12">
-          <button className="btn btn-primary" type="submit" disabled={loading}>
+          <button className="btn btn-primary" type="submit" data-cy="record-submit-btn" disabled={loading}>
             {loading ? 'Guardando...' : 'Guardar récord'}
           </button>
         </div>
